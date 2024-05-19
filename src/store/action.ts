@@ -1,9 +1,12 @@
+import { Job } from "../types";
+
 export const enum ActionNames {
   SET_EXPERIENCE = "SET_EXPERIENCE",
   SET_COMPANY_NAME = "SET_COMPANY_NAME",
   SET_LOCATION = "SET_LOCATION",
   SET_ROLES = "SET_ROLES",
   SET_MIN_BASE_PAY = "SET_MIN_BASE_PAY",
+  SET_JOBS = "SET_JOBS",
 }
 
 type SetExperienceAction = {
@@ -41,12 +44,20 @@ type SetMinBasePayAction = {
   };
 };
 
+type SetJobsAction = {
+  type: ActionNames.SET_JOBS;
+  payload: {
+    value: Job[];
+  };
+};
+
 export type ActionTypes =
   | SetExperienceAction
   | SetCompanyNameAction
   | SetLocationAction
   | SetRolesAction
-  | SetMinBasePayAction;
+  | SetMinBasePayAction
+  | SetJobsAction;
 
 export const setExperienceAction = (value: string): SetExperienceAction => ({
   type: ActionNames.SET_EXPERIENCE,
@@ -70,5 +81,10 @@ export const setRolesAction = (value: string[]): SetRolesAction => ({
 
 export const setMinBasePayAction = (value: string): SetMinBasePayAction => ({
   type: ActionNames.SET_MIN_BASE_PAY,
+  payload: { value },
+});
+
+export const setJobsAction = (value: Job[]): SetJobsAction => ({
+  type: ActionNames.SET_JOBS,
   payload: { value },
 });

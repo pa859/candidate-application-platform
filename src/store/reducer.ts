@@ -9,6 +9,7 @@ export const initState: InitStateType = {
     role: [],
     minBasePay: "",
   },
+  jobs: [],
 };
 
 export const reducer = (state = initState, action: ActionTypes) => {
@@ -47,6 +48,13 @@ export const reducer = (state = initState, action: ActionTypes) => {
       nextState = {
         ...state,
         filters: { ...state.filters, role: action.payload.value },
+      };
+      break;
+    }
+    case ActionNames.SET_JOBS: {
+      nextState = {
+        ...state,
+        jobs: action.payload.value,
       };
       break;
     }

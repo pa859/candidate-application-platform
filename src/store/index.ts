@@ -5,5 +5,6 @@ export {
   setRolesAction,
   setLocationAction,
   setMinBasePayAction,
+  setJobsAction,
 } from "./action";
 export { useFilterExperience, useFilterValue } from "./hooks";

@@ -1,3 +1,5 @@
+import { Job } from "../types";
+
 export type FiltersState = {
   experience: string;
   companyName: string;
@@ -8,4 +10,5 @@ export type FiltersState = {
 
 export type InitStateType = {
   filters: FiltersState;
+  jobs: Job[];
 };

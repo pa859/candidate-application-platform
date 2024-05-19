@@ -1,9 +1,11 @@
 import { Stack } from "@mui/material";
 import CardContainer from "./components/CardContainer";
+import Header from "./components/Header";
 
 const Layout = () => {
   return (
-    <Stack paddingY="60px" paddingX="200px">
+    <Stack paddingX="200px">
+      <Header />
       <CardContainer />
     </Stack>
   );

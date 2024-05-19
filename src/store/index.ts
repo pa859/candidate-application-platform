@@ -1,4 +1,4 @@
-export { StoreProvider } from "./store";
+export { StoreProvider, store } from "./store";
 export {
   setExperienceAction,
   setCompanyNameAction,
@@ -6,5 +6,6 @@ export {
   setLocationAction,
   setMinBasePayAction,
   setJobsAction,
+  setPageNumberAction,
 } from "./action";
-export { useFilterExperience, useFilterValue } from "./hooks";
+export { useFilterExperience, useFilterValue, usePageNumber } from "./hooks";

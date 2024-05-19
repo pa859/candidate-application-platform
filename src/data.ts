@@ -1,7 +1,7 @@
 import { Job } from "./types";
 
-export const getSampleJdJSON = (): Job[] => {
-  return [
+export const getSampleJdJSON = (page = 0): Job[] => {
+  const data = [
     {
       jdUid: "cfff35ac-053c-11ef-83d3-06301d0a7178-92010",
       jdLink: "https://weekday.works",
@@ -978,4 +978,6 @@ export const getSampleJdJSON = (): Job[] => {
       logoUrl: "https://logo.clearbit.com/adobe.com",
     },
   ];
+
+  return data.slice(page * 6, (page + 1) * 6);
 };

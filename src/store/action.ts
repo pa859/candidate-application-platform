@@ -7,6 +7,7 @@ export const enum ActionNames {
   SET_ROLES = "SET_ROLES",
   SET_MIN_BASE_PAY = "SET_MIN_BASE_PAY",
   SET_JOBS = "SET_JOBS",
+  SET_PAGE_NUMBER = "SET_PAGE_NUMBER",
 }
 
 type SetExperienceAction = {
@@ -51,13 +52,21 @@ type SetJobsAction = {
   };
 };
 
+type SetPageNumberAction = {
+  type: ActionNames.SET_PAGE_NUMBER;
+  payload: {
+    value: number;
+  };
+};
+
 export type ActionTypes =
   | SetExperienceAction
   | SetCompanyNameAction
   | SetLocationAction
   | SetRolesAction
   | SetMinBasePayAction
-  | SetJobsAction;
+  | SetJobsAction
+  | SetPageNumberAction;
 
 export const setExperienceAction = (value: string): SetExperienceAction => ({
   type: ActionNames.SET_EXPERIENCE,
@@ -86,5 +95,10 @@ export const setMinBasePayAction = (value: string): SetMinBasePayAction => ({
 
 export const setJobsAction = (value: Job[]): SetJobsAction => ({
   type: ActionNames.SET_JOBS,
+  payload: { value },
+});
+
+export const setPageNumberAction = (value: number): SetPageNumberAction => ({
+  type: ActionNames.SET_PAGE_NUMBER,
   payload: { value },
 });

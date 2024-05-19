@@ -11,4 +11,5 @@ export type FiltersState = {
 export type InitStateType = {
   filters: FiltersState;
   jobs: Job[];
+  pageNum: number;
 };

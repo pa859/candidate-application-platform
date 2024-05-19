@@ -1,4 +1,6 @@
 import { EXCHANGE_RATE } from "../constants";
+import { getSampleJdJSON } from "../data";
+import { setPageNumberAction, store } from "../store";
 
 export const capitalizeWords = (str: string) =>
   str
@@ -28,4 +30,10 @@ export const salaryText = (
   }
 
   return "";
+};
+
+export const fetchJobs = (pageNum: number) => {
+  const response = getSampleJdJSON(pageNum);
+  if (response.length) store.dispatch(setPageNumberAction(pageNum + 1));
+  return response;
 };

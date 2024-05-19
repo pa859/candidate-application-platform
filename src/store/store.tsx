@@ -2,7 +2,7 @@ import { Provider, useDispatch, useSelector } from "react-redux";
 import { createStore } from "redux";
 import { reducer } from "./reducer";
 
-const store = createStore(reducer);
+export const store = createStore(reducer);
 
 export type RootState = ReturnType<typeof store.getState>;
 

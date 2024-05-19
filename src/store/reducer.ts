@@ -10,6 +10,7 @@ export const initState: InitStateType = {
     minBasePay: "",
   },
   jobs: [],
+  pageNum: 0,
 };
 
 export const reducer = (state = initState, action: ActionTypes) => {
@@ -55,6 +56,13 @@ export const reducer = (state = initState, action: ActionTypes) => {
       nextState = {
         ...state,
         jobs: action.payload.value,
+      };
+      break;
+    }
+    case ActionNames.SET_PAGE_NUMBER: {
+      nextState = {
+        ...state,
+        pageNum: action.payload.value,
       };
       break;
     }

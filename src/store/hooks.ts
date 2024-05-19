@@ -34,6 +34,10 @@ export const useJobCards = () => {
   return useAppSelector((state) => state.jobs);
 };
 
+export const usePageNumber = () => {
+  return useAppSelector((state) => state.pageNum);
+};
+
 export const useFilteredJobCards = () => {
   const experience = useFilterExperience();
   const companyName = useFilterCompanyName();

@@ -6,7 +6,7 @@ const CardContainer = () => {
   const jobs = getSampleJdJSON();
 
   return (
-    <Grid container rowSpacing={6} columnSpacing={4} paddingTop="60px">
+    <Grid container rowSpacing={6} columnSpacing={4} paddingY="60px">
       {jobs.map((job) => (
         <JobCard key={job.jdUid} job={job} />
       ))}

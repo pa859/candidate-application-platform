@@ -4,7 +4,7 @@ import Header from "./components/Header";
 
 const Layout = () => {
   return (
-    <Stack paddingX="200px">
+    <Stack maxWidth="80%" margin="auto">
       <Header />
       <CardContainer />
     </Stack>

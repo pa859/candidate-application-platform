@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <Grid container gap={1} paddingTop="30px">
       {FILTER_CONFIG.map((filter) => (
-        <Grid item lg={2} key={filter.name}>
+        <Grid item sm={2} key={filter.name}>
           <FilterComponent
             name={filter.name}
             label={filter.label}

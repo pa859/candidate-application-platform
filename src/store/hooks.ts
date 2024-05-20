@@ -50,9 +50,7 @@ export const useFilteredJobCards = () => {
     new ExperienceSpecification(experience === "" ? 0 : parseInt(experience)),
     new LocationSpecification(location),
     new RoleSpecification(roles),
-    new MinBasePaySpecification(
-      minPay === "" ? 0 : parseInt(minPay.slice(0, -1))
-    )
+    new MinBasePaySpecification(minPay === "" ? 0 : parseInt(minPay))
   );
   return JobFilter.filter(jobs, spec);
 };

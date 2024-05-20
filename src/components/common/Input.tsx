@@ -10,7 +10,12 @@ const Input = ({
   onChange: (event: any) => void;
 }) => {
   return (
-    <OutlinedInput placeholder={label} value={value} onChange={onChange} />
+    <OutlinedInput
+      fullWidth
+      placeholder={label}
+      value={value}
+      onChange={onChange}
+    />
   );
 };
 

@@ -24,7 +24,7 @@ const SingleSelect = ({
   onChange,
 }: {
   value: string;
-  items: string[];
+  items: { label: string; value: string }[];
   label: string;
   onChange: (event: SelectChangeEvent<string>) => void;
 }) => {
@@ -44,9 +44,9 @@ const SingleSelect = ({
         )}
         MenuProps={MenuProps}
       >
-        {items.map((name) => (
-          <MenuItem key={name} value={name}>
-            {name}
+        {items.map((item) => (
+          <MenuItem key={item.label} value={item.value}>
+            {item.label}
           </MenuItem>
         ))}
       </Select>

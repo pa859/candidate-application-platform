@@ -1,5 +1,6 @@
 import BoltIcon from "@mui/icons-material/Bolt";
 import {
+  Button,
   Card,
   CardActions,
   CardContent,
@@ -12,18 +13,13 @@ import {
 } from "@mui/material";
 import { Job } from "../types";
 import { capitalizeWords, salaryText } from "../utils";
+import { CloseOutlined } from "@mui/icons-material";
 
-const JobCard = ({
-  job,
-  onViewJobClick,
-}: {
-  job: Job;
-  onViewJobClick: (e: React.MouseEvent<HTMLElement>) => void;
-}) => {
+const JobView = ({ job, onClose }: { job: Job; onClose: () => void }) => {
   const { minJdSalary, maxJdSalary, minExp } = job;
 
   return (
-    <Grid item xs={12} md={6} lg={4}>
+    <Grid width="100%">
       <Card
         elevation={4}
         sx={{
@@ -57,6 +53,11 @@ const JobCard = ({
               {capitalizeWords(job.location)}
             </Typography>
           }
+          action={
+            <Button onClick={onClose}>
+              <CloseOutlined />
+            </Button>
+          }
         />
         <CardContent sx={{ paddingTop: "8px", paddingX: "24px" }}>
           <Stack>
@@ -82,33 +83,7 @@ const JobCard = ({
             <Grid position="relative" overflow="hidden" marginTop="12px">
               <Typography fontSize="18px">About Company:</Typography>
               <Typography fontWeight={600}>About us</Typography>
-              <Typography maxHeight="250px">
-                {job.jobDetailsFromCompany}
-              </Typography>
-              <Grid
-                position="absolute"
-                sx={{
-                  inset: 0,
-                  backgroundImage:
-                    "linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))",
-                  display: "flex",
-                  flexDirection: "column-reverse",
-                  alignItems: "center",
-                }}
-              >
-                <Link
-                  role="button"
-                  onClick={onViewJobClick}
-                  data-job={job.jdUid}
-                  sx={{
-                    textDecoration: "none",
-                    cursor: "pointer",
-                    marginBottom: "16px",
-                  }}
-                >
-                  View job
-                </Link>
-              </Grid>
+              <Typography>{job.jobDetailsFromCompany}</Typography>
             </Grid>
             {minExp && (
               <Grid marginTop="16px">
@@ -152,4 +127,4 @@ const JobCard = ({
   );
 };
 
-export default JobCard;
+export default JobView;
